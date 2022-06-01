@@ -5,7 +5,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
-let shuffledQuestions, currentQuestionIndex, hataorani
+let shuffledQuestions, currentQuestionIndex, UserScore
 let score = 0,wrong = 0
 
 startButton.addEventListener('click', startGame)
@@ -76,13 +76,13 @@ function selectAnswer(e) {
     nextButton.classList.remove('hide')
   } else {
     // TODO: end screen
-    hataorani = 100 - ((wrong / (score + wrong)) * 100)
-    console.log(hataorani)
+    UserScore = 100 - ((wrong / (score + wrong)) * 100)
+    console.log(UserScore)
     const url = window.location.href
     const value = url.split('?')
     const userName = value[1].split("=")[1]
     const gameId = value[2]
-    window.location.href = "./end.html?userName="+userName+"?scoreBoard="+hataorani+"";
+    window.location.href = "./end.html?userName="+userName+"?scoreBoard="+UserScore*10+"";
   }
 }
 
@@ -111,7 +111,7 @@ const questions = [
     ]
   },
   {
-    question: 'YY nin en havalı c developerı kimdir? ',
+    question: 'YY nin en havalı C developerı kimdir? ',
     answers: [
       { text: 'Eren GÜN', correct: true },
       { text: 'Eren GÜN', correct: true },
@@ -120,19 +120,39 @@ const questions = [
     ]
   },
   {
-    question: 'Is web development fun?',
+    question: 'Etli ekmek hangi ilimizde meşhurdur? ',
     answers: [
-      { text: 'Kinda', correct: false },
-      { text: 'YES!!!', correct: true },
-      { text: 'Um no', correct: false },
-      { text: 'IDK', correct: false }
+      { text: 'Kastamonu', correct: true },
+      { text: 'Konya', correct: true },
+      { text: 'İstanbul', correct: false },
+      { text: 'İzmir', correct: false }
     ]
   },
   {
-    question: 'What is 4 * 2?',
+    question: 'Teknofest bu yıl hangi ülkede yapılacaktır.',
     answers: [
-      { text: '6', correct: false },
-      { text: '8', correct: true }
+      { text: 'İstanbul', correct: false },
+      { text: 'Samsun', correct: true },
+      { text: 'Trabzon', correct: false },
+      { text: 'Giresun', correct: false }
+    ]
+  },
+  {
+    question: 'T3 vakfı hangi yıl kurulmuştur?',
+    answers: [
+      { text: '2013', correct: false },
+      { text: '2000', correct: false },
+      { text: '2015', correct: false },
+      { text: '2016', correct: true }
+    ]
+  },
+  {
+    question: 'İstanbulda kaç adet deneyap atölyesi bulunmaktadır?',
+    answers: [
+      { text: '9', correct: false },
+      { text: '10', correct: false },
+      { text: '11', correct: true },
+      { text: '12', correct: false }
     ]
   }
 ]
